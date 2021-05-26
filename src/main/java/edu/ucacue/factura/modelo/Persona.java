@@ -107,6 +107,13 @@ import  javax.persistence.Table;
 	
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono
+				+ ", cedula=" + cedula + "]";
+	}
+	
 	}
 	
 
