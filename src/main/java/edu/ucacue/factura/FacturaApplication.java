@@ -21,8 +21,7 @@ public class FacturaApplication {
 		
 		
 		Principal p = contexto.getBean(Principal.class);
-		
-		p.insertarPersona();
+		p . GUI ();
 	}
 
 }

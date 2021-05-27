@@ -26,12 +26,9 @@ import  javax.persistence.Table;
 		private String telefono;
 		@Column(nullable = false,unique = true)
 		private String cedula;
-			
-	
 		
-		public Persona(int id, String nombre, String apellido, String telefono, String cedula) {
+		public Persona( String nombre, String apellido, String telefono, String cedula) {
 			super();
-			this.id = id;
 			this.nombre = nombre;
 			this.apellido = apellido;
 			this.telefono = telefono;
