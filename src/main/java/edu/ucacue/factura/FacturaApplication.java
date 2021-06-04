@@ -1,6 +1,8 @@
 package edu.ucacue.factura;
 
 //import org.springframework.boot.SpringApplication;
+import  edu.ucacue.factura.controlador.PrincipalGui;
+
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -14,7 +16,7 @@ public class FacturaApplication {
 	public static void main(String[] args) {
 		//SpringApplication.run(FacturaApplication.class, args);
 		
-		ConfigurableApplicationContext contexto = new SpringApplicationBuilder(FacturaApplication.class)
+		/*ConfigurableApplicationContext contexto = new SpringApplicationBuilder(FacturaApplication.class)
 		.headless(false)		
 		.web(WebApplicationType.NONE)
 		.run(args);
@@ -22,6 +24,15 @@ public class FacturaApplication {
 		
 		Principal p = contexto.getBean(Principal.class);
 		p . GUI ();
+		p.GUI (); */
+
+		ConfigurableApplicationContext contexto = new SpringApplicationBuilder(FacturaApplication.class)
+			    .headless(false)
+			    .web(WebApplicationType.NONE)
+			    .run(args);
+
+				PrincipalGui principaGui= contexto.getBean(PrincipalGui.class);
+				principaGui.setVisible(true);
 	}
 
 }
