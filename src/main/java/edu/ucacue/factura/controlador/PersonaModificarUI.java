@@ -121,6 +121,7 @@ public class PersonaModificarUI extends JInternalFrame {
 			personaModificada.setId(persona.getId());
 			personaRepositorio.save(personaModificada);
 		}
+		
 	});
 		btnGuardar.setEnabled(false);
 		btnGuardar.setBounds(148, 105, 71, 23);

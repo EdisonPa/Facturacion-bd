@@ -31,7 +31,8 @@ public class Index extends JFrame {
 	
 	@Autowired
 	PersonaModificarUI pModificarUI;
-
+	
+	
 	/**
 	 * Create the frame.
 	 */
@@ -69,14 +70,18 @@ public class Index extends JFrame {
 		mnNewMenu.add(miPModificar);
 		
 		JMenuItem miPEliminar = new JMenuItem("Eliminar");
+		miPEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
 		mnNewMenu.add(miPEliminar);
 		
 		JMenuItem miPListar = new JMenuItem("Listar");
 		mnNewMenu.add(miPListar);
 		//contentPane = new JPanel();
 		//setContentPane(contentPane);
-		
-		
 		
 	}
 
