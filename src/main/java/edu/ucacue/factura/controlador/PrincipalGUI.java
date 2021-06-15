@@ -27,8 +27,11 @@ import javax.swing.JToggleButton;
 import javax.swing.JTabbedPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
+import java.awt.Color;
 @Controller
-public class PrincipalGui extends JInternalFrame {
+public class PrincipalGUI extends JInternalFrame {
 	private JPanel contentPane;
 	private JTextField txtNombre;
 	private JTextField txtCedula;
@@ -51,7 +54,7 @@ public class PrincipalGui extends JInternalFrame {
 	private JTextField txtBuscarApellido;
 	private JLabel lblNewLabel_4;
 
-	public PrincipalGui() {
+	public PrincipalGUI() {
 
 		this.setMaximizable(true); // maximize
 		this.setIconifiable(true); // set minimize
@@ -60,6 +63,7 @@ public class PrincipalGui extends JInternalFrame {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 632, 421);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -106,18 +110,6 @@ public class PrincipalGui extends JInternalFrame {
 			}
 		});
 		contentPane.add(btnGuardar);
-		tablePersona = new JTable();
-		tablePersona.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				btnEliminar.setEnabled(true);
-				btnActualizar.setEnabled(true);
-				//System.out.println(tablePersona.getSelectedRow());
-				//System.out.println(personaModel.getPersonaAt(tablePersona.getSelectedRow()));
-			}
-		});
-		tablePersona.setBounds(36, 214, 546, 102);
-		contentPane.add(tablePersona);
 		btnEliminar = new JButton("Eliminar");
 		btnEliminar.setEnabled(false);
 		btnEliminar.addActionListener(new ActionListener() {
@@ -173,6 +165,29 @@ public class PrincipalGui extends JInternalFrame {
 		});
 		btnBuscar.setBounds(407, 182, 89, 23);
 		contentPane.add(btnBuscar);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(46, 214, 507, 128);
+		contentPane.add(scrollPane);
+		tablePersona = new JTable();
+		tablePersona.setBackground(Color.WHITE);
+		scrollPane.setViewportView(tablePersona);
+		tablePersona.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Nombre", "Apellido", "Cedula", "Telefono"
+			}
+		));
+		tablePersona.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btnEliminar.setEnabled(true);
+				btnActualizar.setEnabled(true);
+				//System.out.println(tablePersona.getSelectedRow());
+				//System.out.println(personaModel.getPersonaAt(tablePersona.getSelectedRow()));
+			}
+		});
 
 	}
 
@@ -193,4 +208,3 @@ public class PrincipalGui extends JInternalFrame {
 		// personaRepositorio.findAll();
 	}
 }
-	

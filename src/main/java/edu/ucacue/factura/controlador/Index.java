@@ -27,10 +27,13 @@ public class Index extends JFrame {
 	JDesktopPane desktopPanel;
 	
 	@Autowired
-	PrincipalGui pUI;
+	ProductoGui pUI;
 	
 	@Autowired
-	PersonaModificarUI pModificarUI;
+	PrincipalGUI pGUI;
+	
+	/*@Autowired
+	ProductoModificarUI pModificarUI;*/
 	
 	
 	/**
@@ -46,10 +49,10 @@ public class Index extends JFrame {
 		
 		desktopPanel= new JDesktopPane();
 		getContentPane().add(desktopPanel);
-		JMenu mnNewMenu = new JMenu("Persona");
+		JMenu mnNewMenu = new JMenu("Menu");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem miPNuevo = new JMenuItem("Nueva");
+		JMenuItem miPNuevo = new JMenuItem("Producto");
 		miPNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -60,26 +63,39 @@ public class Index extends JFrame {
 		});
 		mnNewMenu.add(miPNuevo);
 		
-		JMenuItem miPModificar = new JMenuItem("Modificar");
+		JMenuItem miPeNuevo = new JMenuItem("Persona");
+		miPeNuevo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				pGUI.setVisible(true);
+				desktopPanel.add(pGUI);
+
+			}
+		});
+		mnNewMenu.add(miPeNuevo);
+		
+		
+		
+		/*JMenuItem miPModificar = new JMenuItem("Modificar");
 		miPModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pModificarUI.setVisible(true);
 				desktopPanel.add(pModificarUI);
 			}
 		});
-		mnNewMenu.add(miPModificar);
+		mnNewMenu.add(miPModificar);*/
 		
-		JMenuItem miPEliminar = new JMenuItem("Eliminar");
+		/*JMenuItem miPEliminar = new JMenuItem("Eliminar");
 		miPEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				
 			}
 		});
-		mnNewMenu.add(miPEliminar);
+		/*mnNewMenu.add(miPEliminar);
 		
 		JMenuItem miPListar = new JMenuItem("Listar");
-		mnNewMenu.add(miPListar);
+		mnNewMenu.add(miPListar);*/
 		//contentPane = new JPanel();
 		//setContentPane(contentPane);
 		

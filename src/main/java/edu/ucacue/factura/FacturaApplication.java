@@ -1,7 +1,7 @@
 package edu.ucacue.factura;
 
 //import org.springframework.boot.SpringApplication;
-import  edu.ucacue.factura.controlador.PrincipalGui;
+import  edu.ucacue.factura.controlador.ProductoGui;
 import edu.ucacue.factura.controlador.Index;
 
 import org.springframework.boot.WebApplicationType;
@@ -10,7 +10,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
 
-import edu.ucacue.factura.controlador.Principal;
+//import edu.ucacue.factura.controlador.Principal;
 
 @SpringBootApplication
 public class FacturaApplication {

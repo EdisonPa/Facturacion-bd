@@ -112,15 +112,3 @@ import  javax.persistence.Table;
 	}
 	
 	}
-	
-
-
-    
-
-	
-	
-	
-	
-	
-
-
