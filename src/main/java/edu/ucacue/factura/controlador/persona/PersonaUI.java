@@ -1,4 +1,4 @@
-package edu.ucacue.factura.controlador;
+package edu.ucacue.factura.controlador.persona;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 import edu.ucacue.factura.infraestructura.repositorio.PersonaRepository;
 import edu.ucacue.factura.modelo.Persona;
 import javax.swing.JLabel;
@@ -31,7 +32,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 import java.awt.Color;
 @Controller
-public class PrincipalGUI extends JInternalFrame {
+public class PersonaUI extends JInternalFrame {
 	private JPanel contentPane;
 	private JTextField txtNombre;
 	private JTextField txtCedula;
@@ -54,7 +55,7 @@ public class PrincipalGUI extends JInternalFrame {
 	private JTextField txtBuscarApellido;
 	private JLabel lblNewLabel_4;
 
-	public PrincipalGUI() {
+	public PersonaUI() {
 
 		this.setMaximizable(true); // maximize
 		this.setIconifiable(true); // set minimize

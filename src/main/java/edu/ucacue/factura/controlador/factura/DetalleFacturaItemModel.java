@@ -1,53 +1,56 @@
-package edu.ucacue.factura.controlador;
+package edu.ucacue.factura.controlador.factura;
 
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import edu.ucacue.factura.modelo.Persona;
+import edu.ucacue.factura.modelo.DetalleFactura;
 
 
-public class PersonaItemModel extends AbstractTableModel {
+public class DetalleFacturaItemModel extends AbstractTableModel {
 
 
 	private static final long serialVersionUID = 1L;
-	private List<Persona> personas;
-	private static final String[] COLUMN_NAMES = {"Nombre", "Apellido","Telefono", "Cédula"};
+	private List<DetalleFactura> detallesFacturas;
+	private static final String[] COLUMN_NAMES = {"id","Producto", "Precio","Cantidad", "Valor de Venta"};
 
-	public PersonaItemModel(List<Persona> personas) {
+	public DetalleFacturaItemModel(List<DetalleFactura> detallesFacturas) {
 
-		this.personas = personas;
+		this.detallesFacturas = detallesFacturas;
 
 	}
 
 	@Override
 	public int getRowCount() {
-		return personas.size();
+		return detallesFacturas.size();
 	}
 
 	@Override
 	public int getColumnCount() {
-		return 4;
+		return 5;
 	}
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 
 		Object value = "??";
-		Persona persona = personas.get(rowIndex);
+		DetalleFactura dF = detallesFacturas.get(rowIndex);
 		switch (columnIndex) {
 		case 0:
-			value = persona.getNombre();
+			value = dF.getIdFactura();
 			break;
 		case 1:
-			value = persona.getApellido();
+			value = dF.getProducto().getNombre();
 			break;
 		case 2:
-			value = persona.getTelefono();
+			value = dF.getProducto().getPrecio();
 			break;
-		
 		case 3:
-			value = persona.getCedula();
+			value = dF.getCantidad();
+			break;
+
+		case 4:
+			value =dF.getValorVenta();
 			break;
 		}
 
@@ -57,9 +60,9 @@ public class PersonaItemModel extends AbstractTableModel {
 
 	@Override
     public Class<?> getColumnClass(int columnIndex) {
-        return Persona.class;
+        return DetalleFactura.class;
     }
-	
+
     //the column header
     @Override
     public String getColumnName(int column) {
@@ -79,8 +82,8 @@ public class PersonaItemModel extends AbstractTableModel {
 	 * @param row
 	 * @return
 	 */
-	public Persona getPersonaAt(int row) {
-		return personas.get(row);
+	public DetalleFactura getDetalleFacturaAt(int row) {
+		return detallesFacturas.get(row);
 	}
 
 }

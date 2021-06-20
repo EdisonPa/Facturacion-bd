@@ -1,28 +1,28 @@
-package edu.ucacue.factura.controlador;
+package edu.ucacue.factura.controlador.persona;
 
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import edu.ucacue.factura.modelo.Producto;
+import edu.ucacue.factura.modelo.Persona;
 
 
-public class ProductoItemModel extends AbstractTableModel {
+public class PersonaItemModel extends AbstractTableModel {
 
 
 	private static final long serialVersionUID = 1L;
-	private List<Producto> productos;
-	private static final String[] COLUMN_NAMES = {"Nombre", "Descripcion","Precio", "Stock"};
+	private List<Persona> personas;
+	private static final String[] COLUMN_NAMES = {"Nombre", "Apellido","Telefono", "Cédula"};
 
-	public ProductoItemModel(List<Producto> productos) {
+	public PersonaItemModel(List<Persona> personas) {
 
-		this.productos = productos;
+		this.personas = personas;
 
 	}
 
 	@Override
 	public int getRowCount() {
-		return productos.size();
+		return personas.size();
 	}
 
 	@Override
@@ -34,20 +34,20 @@ public class ProductoItemModel extends AbstractTableModel {
 	public Object getValueAt(int rowIndex, int columnIndex) {
 
 		Object value = "??";
-		Producto producto = productos.get(rowIndex);
+		Persona persona = personas.get(rowIndex);
 		switch (columnIndex) {
 		case 0:
-			value = producto.getNombre();
+			value = persona.getNombre();
 			break;
 		case 1:
-			value = producto.getDescripcion();
+			value = persona.getApellido();
 			break;
 		case 2:
-			value = producto.getPrecio();
+			value = persona.getTelefono();
 			break;
 		
 		case 3:
-			value = producto.getStock();
+			value = persona.getCedula();
 			break;
 		}
 
@@ -57,7 +57,7 @@ public class ProductoItemModel extends AbstractTableModel {
 
 	@Override
     public Class<?> getColumnClass(int columnIndex) {
-        return Producto.class;
+        return Persona.class;
     }
 	
     //the column header
@@ -79,8 +79,8 @@ public class ProductoItemModel extends AbstractTableModel {
 	 * @param row
 	 * @return
 	 */
-	public Producto getPersonaAt(int row) {
-		return productos.get(row);
+	public Persona getPersonaAt(int row) {
+		return personas.get(row);
 	}
 
 }

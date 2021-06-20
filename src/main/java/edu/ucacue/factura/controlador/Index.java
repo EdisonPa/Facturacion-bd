@@ -1,15 +1,15 @@
 package edu.ucacue.factura.controlador;
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
+import edu.ucacue.factura.controlador.factura.FacturaUI;
+import edu.ucacue.factura.controlador.persona.PersonaUI;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -18,24 +18,20 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
 @Controller
 public class Index extends JFrame {
-
 	//private JPanel contentPane;
 	
 	JDesktopPane desktopPanel;
 	
 	@Autowired
-	ProductoGui pUI;
-	
-	@Autowired
-	PrincipalGUI pGUI;
+	PersonaUI pUI;
 	
 	/*@Autowired
-	ProductoModificarUI pModificarUI;*/
-	
-	
+	PersonaModificarUI pModificarUI;*/
+
+	@Autowired
+	FacturaUI facturaUI;
 	/**
 	 * Create the frame.
 	 */
@@ -49,32 +45,18 @@ public class Index extends JFrame {
 		
 		desktopPanel= new JDesktopPane();
 		getContentPane().add(desktopPanel);
-		JMenu mnNewMenu = new JMenu("Menu");
+		JMenu mnNewMenu = new JMenu("Persona");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem miPNuevo = new JMenuItem("Producto");
+		JMenuItem miPNuevo = new JMenuItem("Nueva");
 		miPNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				pUI.setVisible(true);
 				desktopPanel.add(pUI);
-
 			}
 		});
 		mnNewMenu.add(miPNuevo);
-		
-		JMenuItem miPeNuevo = new JMenuItem("Persona");
-		miPeNuevo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				pGUI.setVisible(true);
-				desktopPanel.add(pGUI);
-
-			}
-		});
-		mnNewMenu.add(miPeNuevo);
-		
-		
 		
 		/*JMenuItem miPModificar = new JMenuItem("Modificar");
 		miPModificar.addActionListener(new ActionListener() {
@@ -86,19 +68,27 @@ public class Index extends JFrame {
 		mnNewMenu.add(miPModificar);*/
 		
 		/*JMenuItem miPEliminar = new JMenuItem("Eliminar");
-		miPEliminar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				
-			}
-		});
-		/*mnNewMenu.add(miPEliminar);
-		
+		mnNewMenu.add(miPEliminar);
+
 		JMenuItem miPListar = new JMenuItem("Listar");
 		mnNewMenu.add(miPListar);*/
+
+		JMenu mnNewMenu_1 = new JMenu("Factura");
+		menuBar.add(mnNewMenu_1);
+
+		JMenuItem mntmNewMenuItem = new JMenuItem("Nueva Factura");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				facturaUI.setVisible(true);
+				desktopPanel.add(facturaUI);
+			}
+		});
+		mnNewMenu_1.add(mntmNewMenuItem);
 		//contentPane = new JPanel();
 		//setContentPane(contentPane);
-		
+
+
+
 	}
 
 }

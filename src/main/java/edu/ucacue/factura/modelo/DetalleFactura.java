@@ -26,6 +26,16 @@ public class DetalleFactura {
 	@ManyToOne
 	@JoinColumn(name = "factura_cabecera_fk")
 	private FacturaCabecera facturaCabecera;
+	
+	
+	
+	public DetalleFactura(int cantidad, Producto producto, FacturaCabecera facturaCabecera) {
+		super();
+		this.cantidad = cantidad;
+		this.producto = producto;
+		this.facturaCabecera = facturaCabecera;
+		this.valorVenta= this.cantidad * producto.getPrecio();
+	}
 
 
 

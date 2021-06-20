@@ -1,8 +1,7 @@
 package edu.ucacue.factura;
 
-//import org.springframework.boot.SpringApplication;
-import  edu.ucacue.factura.controlador.ProductoGui;
 import edu.ucacue.factura.controlador.Index;
+import edu.ucacue.factura.controlador.factura.FacturaUI;
 
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
