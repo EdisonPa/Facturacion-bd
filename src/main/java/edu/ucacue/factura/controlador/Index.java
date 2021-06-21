@@ -48,7 +48,7 @@ public class Index extends JFrame {
 		JMenu mnNewMenu = new JMenu("Persona");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem miPNuevo = new JMenuItem("Nueva");
+		JMenuItem miPNuevo = new JMenuItem("Nueva Persona");
 		miPNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -72,7 +72,8 @@ public class Index extends JFrame {
 
 		JMenuItem miPListar = new JMenuItem("Listar");
 		mnNewMenu.add(miPListar);*/
-
+		desktopPanel= new JDesktopPane();
+		getContentPane().add(desktopPanel);
 		JMenu mnNewMenu_1 = new JMenu("Factura");
 		menuBar.add(mnNewMenu_1);
 
